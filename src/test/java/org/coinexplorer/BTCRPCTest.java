@@ -1,6 +1,7 @@
 package org.coinexplorer;
 import static org.junit.Assert.*;
 
+import org.coinexplorer.config.RPCConfig;
 import org.coinexplorer.rpc.BTCRPC;
 import org.coinexplorer.rpc.Info;
 import org.junit.After;
@@ -13,7 +14,7 @@ public class BTCRPCTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		rpc = new BTCRPC(null);
+		rpc = new BTCRPC(new RPCConfig("bitcoinrpc", "9GYLQ12RfgBqoc8uKXhBjMqqb63dR39J8MzivigkvA2K", null, null, null, null));
 		if(!rpc.isConnected()){
 			throw new Exception("Test RPC client wasn't able to connect!");
 		}
