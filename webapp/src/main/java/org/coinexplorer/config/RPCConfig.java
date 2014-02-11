@@ -1,6 +1,5 @@
 package org.coinexplorer.config;
 
-import javax.persistence.Entity;
 
 
 public class RPCConfig {

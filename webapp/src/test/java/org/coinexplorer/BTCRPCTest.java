@@ -15,7 +15,7 @@ public class BTCRPCTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		rpc = new BTCRPC(new CEConfig(CEConfig.Type.TEST).getBtcRpcConnection());
+		rpc = new BTCRPC(new CEConfig(CEConfig.Type.TEST).getBtcRpcConfig());
 		if(!rpc.isConnected()){
 			throw new Exception("Test RPC client wasn't able to connect!");
 		}
