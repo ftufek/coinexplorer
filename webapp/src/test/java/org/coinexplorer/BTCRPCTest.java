@@ -51,6 +51,16 @@ public class BTCRPCTest {
 	
 	@Test
 	public void getrawtransaction(){
-		System.out.println(rpc.getrawtransaction("6048c5fbeae0ac6327df6df390f96ef6c74c80b537a7bb6427b6151f72787bbb"));
+		assertEquals(83.30440615,
+						rpc.getrawtransaction("6d5777e765a46779573528e8e78b7e9f8b8de304dfab3606e177ee8a0406d90b").getVout().get(0).getValue(),
+						0.0000001);
+	}
+	
+	@Test
+	public void getCoinbase() {
+		
+		String coinebaseTx = "408db832204f1b3c0740184c071bfc7b61d772462bea6e11fec478eef38a4ec1";
+		assertEquals(true,rpc.getrawtransaction(coinebaseTx).getVin().get(0).isCoinbase());
+	
 	}
 }
