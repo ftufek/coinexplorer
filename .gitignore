@@ -10,3 +10,4 @@ tmp/
 local.properties
 target/
 build/
+.settings/
