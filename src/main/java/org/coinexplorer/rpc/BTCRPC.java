@@ -15,7 +15,7 @@ public class BTCRPC {
 	
 	public BTCRPC(RPCConfig cfg) {
 		try{
-			client = new JsonRpcHttpClient(new URL("http://142.157.164.243:8332/"),
+			client = new JsonRpcHttpClient(new URL("http://132.206.31.69:8332/"),
 											basicAuthenticationHeader(cfg.getUser(), 
 																	  cfg.getPassword()));
 		}catch(Exception e){
