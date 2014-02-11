@@ -1,3 +1,0 @@
-[submodule "neo4j-java-rest-binding"]
-	path = neo4j-java-rest-binding
-	url = https://github.com/neo4j/java-rest-binding.git
