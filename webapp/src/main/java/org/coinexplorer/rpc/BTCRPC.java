@@ -66,4 +66,16 @@ public class BTCRPC {
 			return null;
 		}
 	}
+	
+	public RawTransaction getrawtransaction(String txid){
+		try{
+			RawTransaction tx = client.invoke("getrawtransaction", 
+											  ImmutableList.of(txid, 1), 
+											  RawTransaction.class);
+			return null;
+		}catch(Throwable e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

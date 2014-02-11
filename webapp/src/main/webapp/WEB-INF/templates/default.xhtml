@@ -37,22 +37,23 @@
 					data-toggle="dropdown"> #{msg.menu_stats} <b
 						class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="/address">#{msg.menu_addresses}</a></li>
+						<li><h:link outcome="pretty:address" value="#{msg.menu_addresses}"/></li>
 					</ul></li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<p class="navbar-text">
-						<span class="label label-success">COOL</span>
-					</p>
-				</li>
-			</ul>
+			 <form class="navbar-form navbar-right" role="search">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="Address">
+		          </input>
+		        </div>
+		        <button type="submit" class="btn btn-primary">Go!</button>
+		      </form>
 		</div>
 	</div>
 	</nav>
 	<div class="container"><ui:insert name="content"></ui:insert></div>
 
-	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="//code.jquery.com/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.1/d3.min.js"></script>
 	<h:outputScript name="/js/bootstrap.min.js"/>
 </h:body>
 </html>

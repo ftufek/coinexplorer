@@ -48,4 +48,9 @@ public class BTCRPCTest {
 					 rpc.getblock("000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f")
 						.getMerkleroot());
 	}
+	
+	@Test
+	public void getrawtransaction(){
+		System.out.println(rpc.getrawtransaction("6048c5fbeae0ac6327df6df390f96ef6c74c80b537a7bb6427b6151f72787bbb"));
+	}
 }
