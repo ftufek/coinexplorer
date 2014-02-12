@@ -22,6 +22,10 @@ public class RawTransaction {
 				+ ", confirmations=" + confirmations + ", time=" + time
 				+ ", block=" + blocktime + "]";
 	}
+	
+	public boolean isCoinbase(){
+		return getVin().get(0).isCoinbase();
+	}
 
 	public String getHex() {
 		return hex;

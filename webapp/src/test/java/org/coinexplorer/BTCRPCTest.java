@@ -4,7 +4,9 @@ import static org.junit.Assert.*;
 import org.coinexplorer.config.CEConfig;
 import org.coinexplorer.config.RPCConfig;
 import org.coinexplorer.rpc.BTCRPC;
+import org.coinexplorer.rpc.Block;
 import org.coinexplorer.rpc.Info;
+import org.coinexplorer.rpc.RawTransaction;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -51,16 +53,18 @@ public class BTCRPCTest {
 	
 	@Test
 	public void getrawtransaction(){
-		assertEquals(83.30440615,
-						rpc.getrawtransaction("6d5777e765a46779573528e8e78b7e9f8b8de304dfab3606e177ee8a0406d90b").getVout().get(0).getValue(),
-						0.0000001);
+		String tx = "6d5777e765a46779573528e8e78b7e9f8b8de304dfab3606e177ee8a0406d90b";
+		assertEquals(83.43324691,rpc.getrawtransaction(tx).getVout().get(0).getValue(),	0.0000000000001);
 	}
 	
 	@Test
 	public void getCoinbase() {
+		String coinbaseTx = "408db832204f1b3c0740184c071bfc7b61d772462bea6e11fec478eef38a4ec1";
+		assertTrue(rpc.getrawtransaction(coinbaseTx).isCoinbase());
 		
-		String coinebaseTx = "408db832204f1b3c0740184c071bfc7b61d772462bea6e11fec478eef38a4ec1";
-		assertEquals(true,rpc.getrawtransaction(coinebaseTx).getVin().get(0).isCoinbase());
-	
+		//Check that the first transaction of the block is the Coinbase transaction
+		Block anyBlock = rpc.getblock(rpc.getblockhash(10000).getHash());
+		RawTransaction cbTx = rpc.getrawtransaction(anyBlock.getTx().get(0));
+		assertTrue(cbTx.isCoinbase());
 	}
 }
