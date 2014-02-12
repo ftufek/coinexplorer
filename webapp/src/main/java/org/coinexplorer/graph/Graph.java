@@ -1,6 +1,8 @@
 package org.coinexplorer.graph;
 
 
+import java.util.List;
+
 import org.coinexplorer.config.GraphConfig;
 import org.coinexplorer.graph.nodes.NBase;
 import org.coinexplorer.graph.nodes.NLabel;
@@ -35,6 +37,9 @@ public class Graph {
 			}
 		}
 		return exists;
+	}
+	
+	public <T> void batchInsert(List<NBase<T>> nodes){
 	}
 	
 	private void registerShutdownHook( final GraphDatabaseService graphDb )

@@ -2,6 +2,8 @@ package org.coinexplorer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import org.coinexplorer.config.CEConfig;
 import org.coinexplorer.graph.Graph;
@@ -25,9 +27,7 @@ public class GraphTest {
 	@Test
 	public void basic(){
 		List<Block> blocks = new ArrayList<>();
-		blocks.add(rpc.getblock(100));
-		blocks.add(rpc.getblock(1000));
-		blocks.add(rpc.getblock(10000));
+		blocks.add(rpc.getblock(250000));
 		
 		List<String> outAddresses = new ArrayList<>();
 		for(Block b : blocks){
@@ -36,7 +36,6 @@ public class GraphTest {
 				outAddresses.addAll(tx.getOutAdresses());
 			}
 		}
-		
 		for(String out : outAddresses){
 			if(!graph.isAddressPresent(out)){
 				graph.addNode(new NAddress(out));
