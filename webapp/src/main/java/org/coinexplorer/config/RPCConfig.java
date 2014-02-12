@@ -1,23 +1,16 @@
 package org.coinexplorer.config;
 
-
-
 public class RPCConfig {
 	private String user;
 	private String password;
-	private String protocol;
-	private String host;
-	private String port;
+	private String url;
 	private Type type;
 	
-	public RPCConfig(String user, String password, String protocol,
-			String host, String port, Type type) {
+	public RPCConfig(String user, String password, String url, Type type) {
 		super();
 		this.user = user;
 		this.password = password;
-		this.protocol = protocol;
-		this.host = host;
-		this.port = port;
+		this.url = url;
 		this.type = type;
 	}
 	
@@ -33,32 +26,18 @@ public class RPCConfig {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getProtocol() {
-		return protocol;
+	public String getUrl() {
+		return url;
 	}
-	public void setProtocol(String protocol) {
-		this.protocol = protocol;
-	}
-	public String getHost() {
-		return host;
-	}
-	public void setHost(String host) {
-		this.host = host;
-	}
-	public String getPort() {
-		return port;
-	}
-	public void setPort(String port) {
-		this.port = port;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	public Type getType() {
 		return type;
 	}
-
 	public void setType(Type type) {
 		this.type = type;
 	}
-
 
 	public enum Type{
 		Bitcoin

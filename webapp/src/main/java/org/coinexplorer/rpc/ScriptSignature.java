@@ -1,7 +1,6 @@
 package org.coinexplorer.rpc;
 
 public class ScriptSignature {
-	
 	private String asm; // Assembly code of the Script;
 	private String hex;
 	

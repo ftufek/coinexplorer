@@ -1,9 +1,8 @@
 package org.coinexplorer.rpc;
 
 public class OutputTransaction {
-
-	private double value;   // value given to 
-	private int n;          // Output Transaction #
+	private double value;
+	private int n; // Output Transaction #
 	private ScriptPublicKey scriptPubKey;
 	
 	public double getValue() {

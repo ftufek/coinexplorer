@@ -15,6 +15,5 @@ public class GraphTest {
 	
 	@Test
 	public void basic(){
-		
 	}
 }

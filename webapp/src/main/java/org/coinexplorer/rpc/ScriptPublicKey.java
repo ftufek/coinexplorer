@@ -3,7 +3,6 @@ import java.util.List;
 
 
 public class ScriptPublicKey {
-
 	private String asm;
 	private int reqSigs;
 	private String type;

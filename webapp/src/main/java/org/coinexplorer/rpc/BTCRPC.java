@@ -11,13 +11,11 @@ import com.googlecode.jsonrpc4j.JsonRpcHttpClient;
 
 
 public class BTCRPC {
-	private final static String RPC_SERVER_ADDRESS = "http://132.206.31.69:8332/";
-	
 	private JsonRpcHttpClient client;
 	
 	public BTCRPC(RPCConfig cfg) {
 		try{
-			client = new JsonRpcHttpClient(new URL(RPC_SERVER_ADDRESS),
+			client = new JsonRpcHttpClient(new URL(cfg.getUrl()),
 											basicAuthenticationHeader(cfg.getUser(), 
 																	  cfg.getPassword()));
 		}catch(Exception e){
@@ -62,7 +60,9 @@ public class BTCRPC {
 	
 	public Block getblock(String hash){
 		try{
-			return client.invoke("getblock", ImmutableList.of(hash), Block.class);
+			return client.invoke("getblock", 
+								  ImmutableList.of(hash), 
+								  Block.class);
 		}catch(Throwable e){
 			e.printStackTrace();
 			return null;
@@ -71,10 +71,9 @@ public class BTCRPC {
 	
 	public RawTransaction getrawtransaction(String txid){
 		try{
-			RawTransaction tx = client.invoke("getrawtransaction", 
-											  ImmutableList.of(txid, 1), 
-											  RawTransaction.class);
-			return tx;
+			return client.invoke("getrawtransaction", 
+								  ImmutableList.of(txid, 1), 
+								  RawTransaction.class);
 		}catch(Throwable e){
 			e.printStackTrace();
 			return null;

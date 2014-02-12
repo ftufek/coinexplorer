@@ -1,20 +1,12 @@
 package org.coinexplorer.rpc;
 
 public class InputTransaction {
-	
 	private String txid;   //Input transaction id #
 	private int vout;      //Input transaction output #
 	private ScriptSignature scriptSig;
-	private int sequence; //0xFFFFFFFF oh yeah ?
-	private String coinbase;
-	
-	private boolean isCb = false;
-
-	
-	public boolean isCoinbase() {
-		return isCb;
-	}
-	
+	private int sequence; //0xFFFFFFFF oh yeah ?	
+	private boolean isCoinbase = false;
+			
 	public String getTxid() {
 		return txid;
 	}
@@ -39,12 +31,11 @@ public class InputTransaction {
 	public void setSequence(int sequence) {
 		this.sequence = sequence;
 	}
-	public String getCoinbase() {
-		return coinbase;
+	public boolean isCoinbase() {
+		return isCoinbase;
 	}
 	public void setCoinbase(String coinbase) {
-		this.coinbase = coinbase;
-		this.isCb = true;
+		this.isCoinbase = true;
 	}
 	
 }

@@ -20,8 +20,9 @@ public class CEConfig {
 	
 	public RPCConfig getBtcRpcConfig(){
 		return new RPCConfig("bitcoinrpc", 
-							 "9GYLQ12RfgBqoc8uKXhBjMqqb63dR39J8MzivigkvA2K", 
-							 null, null, null, null);
+							 "9GYLQ12RfgBqoc8uKXhBjMqqb63dR39J8MzivigkvA2K",
+							 "http://132.206.31.69:8332/",
+							 RPCConfig.Type.Bitcoin);
 	}
 	
 	public GraphConfig getGraphConfig(){

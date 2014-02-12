@@ -3,7 +3,6 @@ package org.coinexplorer.rpc;
 import java.util.List;
 
 public class RawTransaction {
-	
 	private String hex;
 	private String txid;
 	private int version;
