@@ -1,16 +1,27 @@
 package org.coinexplorer.graph;
 
+
 import org.coinexplorer.config.GraphConfig;
+import org.coinexplorer.graph.nodes.NBase;
 import org.neo4j.graphdb.GraphDatabaseService;
+import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 
 
 public class Graph {
-	public GraphDatabaseService service;
+	private GraphDatabaseService graphDb;
 	
 	public Graph(GraphConfig graphConfig){
-		service = new GraphDatabaseFactory().newEmbeddedDatabase(graphConfig.getDbPath());
-		registerShutdownHook(service);
+		graphDb = new GraphDatabaseFactory().newEmbeddedDatabase(graphConfig.getDbPath());
+		registerShutdownHook(graphDb);
+		new GraphMigrations(graphDb).run();
+	}
+	
+	public void addNode(NBase toInsert){
+		try(Transaction tx = graphDb.beginTx()){
+			toInsert.fillNode(graphDb.createNode());
+			tx.success();
+		}
 	}
 	
 	private void registerShutdownHook( final GraphDatabaseService graphDb )

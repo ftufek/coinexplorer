@@ -1,5 +1,6 @@
 package org.coinexplorer.rpc;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RawTransaction {
@@ -25,6 +26,14 @@ public class RawTransaction {
 	
 	public boolean isCoinbase(){
 		return getVin().get(0).isCoinbase();
+	}
+	
+	public List<String> getOutAdresses(){
+		List<String> outAddresses = new ArrayList<>();
+		for(OutputTransaction tx : getVout()){
+			outAddresses.addAll(tx.getScriptPubKey().getAddresses());
+		}
+		return outAddresses;
 	}
 
 	public String getHex() {

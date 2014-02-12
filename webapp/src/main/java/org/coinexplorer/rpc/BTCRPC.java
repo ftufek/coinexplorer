@@ -69,6 +69,10 @@ public class BTCRPC {
 		}
 	}
 	
+	public Block getblock(int index){
+		return getblock(getblockhash(index).getHash());
+	}
+	
 	public RawTransaction getrawtransaction(String txid){
 		try{
 			return client.invoke("getrawtransaction", 
