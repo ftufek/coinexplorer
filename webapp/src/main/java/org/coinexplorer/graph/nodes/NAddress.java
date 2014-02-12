@@ -4,7 +4,7 @@ import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.schema.Schema;
 
 
-public class NAddress implements NBase {
+public class NAddress implements NBase<NAddress> {
 	public String address;
 
 	public NAddress(String address) {
@@ -13,10 +13,15 @@ public class NAddress implements NBase {
 	}
 	
 	@Override
-	public Node fillNode(Node node) {
+	public Node toNeoNode(Node node) {
 		node.addLabel(NLabel.Address);
 		node.setProperty("address", address);
 		return node;
+	}
+
+	@Override
+	public NAddress fromNeoNode(Node node, Class<NAddress> clazz) {
+		return null;
 	}
 
 	public String getAddress() {

@@ -38,7 +38,9 @@ public class GraphTest {
 		}
 		
 		for(String out : outAddresses){
-			graph.addNode(new NAddress(out));
+			if(!graph.isAddressPresent(out)){
+				graph.addNode(new NAddress(out));
+			}
 		}
 	}
 }
