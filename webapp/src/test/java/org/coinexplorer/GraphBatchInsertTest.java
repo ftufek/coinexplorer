@@ -2,45 +2,53 @@ package org.coinexplorer;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.coinexplorer.config.CEConfig;
-import org.coinexplorer.graph.Graph;
 import org.coinexplorer.graph.GraphBatchInsert;
 import org.coinexplorer.graph.nodes.NAddress;
+import org.coinexplorer.graph.nodes.NBase;
 import org.coinexplorer.rpc.BTCRPC;
 import org.coinexplorer.rpc.Block;
 import org.coinexplorer.rpc.RawTransaction;
 import org.junit.Before;
 import org.junit.Test;
 
-public class GraphTest {
-	private Graph graph;
+public class GraphBatchInsertTest {
+	private final String DEBUG_TAG = "[GraphBatchInsertTest]: ";
+	private GraphBatchInsert<NAddress> batchInsert;
 	private BTCRPC rpc;
 	
 	@Before
 	public void setUp(){
-		graph = new Graph(new CEConfig(CEConfig.Type.TEST).getGraphConfig());
+		batchInsert = new GraphBatchInsert<NAddress>(new CEConfig(CEConfig.Type.TEST).getGraphConfig());
 		rpc = new BTCRPC(new CEConfig(CEConfig.Type.TEST).getBtcRpcConfig());
 	}
 	
 	@Test
 	public void basic(){
 		List<Block> blocks = new ArrayList<>();
-		blocks.add(rpc.getblock(250000));
+		blocks.add(rpc.getblock(256000));
 		
 		List<String> outAddresses = new ArrayList<>();
 		for(Block b : blocks){
-			for(String sTx : b.getTx()){
+			for(String sTx : b.getTx()) {
 				RawTransaction tx = rpc.getrawtransaction(sTx);
-				outAddresses.addAll(tx.getOutAdresses());
+				List<String> addrs = tx.getOutAdresses();
+				
+				for(String addr : addrs){
+					if(!outAddresses.contains(addr)){
+						outAddresses.add(addr);
+					}
+				}
 			}
 		}
+		
+		System.out.println(DEBUG_TAG + "outAddresses.size(): " + outAddresses.size() + ".");
+		
 		for(String out : outAddresses){
-			if(!graph.isAddressPresent(out)){
-				graph.addNode(new NAddress(out));
-			}
+			batchInsert.addToBatchList(new NAddress(out));
 		}
+		
+		batchInsert.batchInsert();
 	}
 }

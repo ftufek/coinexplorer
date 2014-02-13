@@ -1,8 +1,6 @@
 package org.coinexplorer.graph;
 
 
-import java.util.List;
-
 import org.coinexplorer.config.GraphConfig;
 import org.coinexplorer.graph.nodes.NBase;
 import org.coinexplorer.graph.nodes.NLabel;
@@ -14,12 +12,16 @@ import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 
 public class Graph {
 	private GraphDatabaseService graphDb;
+	private GraphConfig graphConfig;
 	
 	public Graph(GraphConfig graphConfig){
+		this.graphConfig = graphConfig;
 		graphDb = new GraphDatabaseFactory().newEmbeddedDatabase(graphConfig.getDbPath());
 		registerShutdownHook(graphDb);
 		new GraphMigrations(graphDb).run();
 	}
+	
+	
 	
 	public <T> void addNode(NBase<T> toInsert){
 		try(Transaction tx = graphDb.beginTx()){
@@ -37,9 +39,6 @@ public class Graph {
 			}
 		}
 		return exists;
-	}
-	
-	public <T> void batchInsert(List<NBase<T>> nodes){
 	}
 	
 	private void registerShutdownHook( final GraphDatabaseService graphDb )
