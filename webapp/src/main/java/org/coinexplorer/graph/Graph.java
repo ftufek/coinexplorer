@@ -14,13 +14,11 @@ public class Graph {
 	private GraphDatabaseService graphDb;
 	
 	public Graph(GraphConfig graphConfig){
-		graphDb = new GraphDatabaseFactory().newEmbeddedDatabase(graphConfig.getDbPath());
+		this.graphDb = new GraphDatabaseFactory().newEmbeddedDatabase(graphConfig.getDbPath());
 		registerShutdownHook(graphDb);
 		new GraphMigrations(graphDb).run();
 	}
-	
-	
-	
+		
 	public <T> void addNode(NBase<T> toInsert){
 		try(Transaction tx = graphDb.beginTx()){
 			toInsert.toNeoNode(graphDb.createNode());

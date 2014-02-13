@@ -8,15 +8,10 @@ import org.coinexplorer.graph.GraphBatchInsert.BatchCapsule;
 import org.neo4j.graphdb.Label;
 import org.neo4j.graphdb.Node;
 
-
-
 public class NAddress implements NBase<NAddress> {
 	private final String PROPERTY_NAME = "address";
+	private String address;
 	
-			
-	public String address;
-	
-
 	public NAddress(String address) {
 		super();
 		this.address = address;
@@ -49,7 +44,7 @@ public class NAddress implements NBase<NAddress> {
 	private HashMap<String,Object> getProperty(){
 		HashMap<String,Object> property = new HashMap<String,Object>();
 		property.put(PROPERTY_NAME,address);
-		
+
 		return property;
 	}
 
