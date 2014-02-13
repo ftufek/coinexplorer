@@ -1,8 +1,11 @@
 package org.coinexplorer;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.coinexplorer.config.CEConfig;
-import org.coinexplorer.config.RPCConfig;
 import org.coinexplorer.rpc.BTCRPC;
 import org.coinexplorer.rpc.Block;
 import org.coinexplorer.rpc.Info;
@@ -10,6 +13,8 @@ import org.coinexplorer.rpc.RawTransaction;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.google.common.collect.ImmutableList;
 
 
 public class BTCRPCTest {

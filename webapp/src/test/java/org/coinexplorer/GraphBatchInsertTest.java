@@ -26,12 +26,22 @@ public class GraphBatchInsertTest {
 	
 	@Test
 	public void basic(){
-		List<Block> blocks = new ArrayList<>();
-		blocks.add(rpc.getblock(256000));
+		long time = System.currentTimeMillis();
 		
+		List<Block> blocks = new ArrayList<>();
+		for(int i = 200000; i<200100; i++){
+			blocks.add(rpc.getblock(i));
+		}
+		
+		System.out.println(DEBUG_TAG+" Scrapped all blocks.");
+		int blockCount = 0;
 		List<String> outAddresses = new ArrayList<>();
+		
 		for(Block b : blocks){
+			time = System.currentTimeMillis();
+			int outAddrSize = outAddresses.size();
 			for(String sTx : b.getTx()) {
+				
 				RawTransaction tx = rpc.getrawtransaction(sTx);
 				List<String> addrs = tx.getOutAdresses();
 				
@@ -41,7 +51,13 @@ public class GraphBatchInsertTest {
 					}
 				}
 			}
-		}
+			if( blockCount % 100 == 0){
+				
+				System.out.println(DEBUG_TAG +"Pushed " + (outAddresses.size() - outAddrSize) + " Addresses of block " + blockCount +" .");
+				System.out.println(DEBUG_TAG +"In " + toSeconds(System.currentTimeMillis() - time) + "seconds. "); 
+			}
+			blockCount++;
+		}	
 		
 		System.out.println(DEBUG_TAG + "outAddresses.size(): " + outAddresses.size() + ".");
 		
@@ -49,6 +65,15 @@ public class GraphBatchInsertTest {
 			batchInsert.addToBatchList(new NAddress(out));
 		}
 		
+		time = System.currentTimeMillis();
+		
 		batchInsert.batchInsert();
+		
+		System.out.println(DEBUG_TAG + "Time to push thes nodes to DB: " + toSeconds(time - System.currentTimeMillis()) + " seconds.");
+	}
+	
+	static float toSeconds(long time)
+	{
+		return (float) ( (double) time / (double) 1000);
 	}
 }

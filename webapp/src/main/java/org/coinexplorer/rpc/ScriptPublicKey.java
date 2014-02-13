@@ -1,4 +1,5 @@
 package org.coinexplorer.rpc;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -6,7 +7,7 @@ public class ScriptPublicKey {
 	private String asm;
 	private int reqSigs;
 	private String type;
-	private List<String> addresses;
+	private List<String> addresses = new ArrayList<>();
 	private String hex;
 	
 	public String getHex() {

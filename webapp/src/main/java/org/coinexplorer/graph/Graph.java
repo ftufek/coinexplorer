@@ -12,10 +12,8 @@ import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 
 public class Graph {
 	private GraphDatabaseService graphDb;
-	private GraphConfig graphConfig;
 	
 	public Graph(GraphConfig graphConfig){
-		this.graphConfig = graphConfig;
 		graphDb = new GraphDatabaseFactory().newEmbeddedDatabase(graphConfig.getDbPath());
 		registerShutdownHook(graphDb);
 		new GraphMigrations(graphDb).run();

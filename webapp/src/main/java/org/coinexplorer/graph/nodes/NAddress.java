@@ -1,6 +1,8 @@
 package org.coinexplorer.graph.nodes;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.coinexplorer.graph.GraphBatchInsert.BatchCapsule;
 import org.neo4j.graphdb.Label;
@@ -46,14 +48,18 @@ public class NAddress implements NBase<NAddress> {
 	
 	private HashMap<String,Object> getProperty(){
 		HashMap<String,Object> property = new HashMap<String,Object>();
-		property.put("address",address);
+		property.put(PROPERTY_NAME,address);
 		
 		return property;
 	}
 
 	@Override
 	public BatchCapsule getBatchCapsule() {
-		return new BatchCapsule(getLabel(),getProperty(),PROPERTY_NAME);
+		// properties 
+		List<String> propertyNames = new ArrayList<String>();
+		propertyNames.add(PROPERTY_NAME);
+		
+		return new BatchCapsule(getLabel(),getProperty(),propertyNames);
 	}
 
 

@@ -28,8 +28,9 @@ public class GraphTest {
 	@Test
 	public void basic(){
 		List<Block> blocks = new ArrayList<>();
-		blocks.add(rpc.getblock(250000));
-		
+		for(int i = 0; i<100000; i++){
+			blocks.add(rpc.getblock(i));
+		}
 		List<String> outAddresses = new ArrayList<>();
 		for(Block b : blocks){
 			for(String sTx : b.getTx()){
