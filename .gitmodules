@@ -1,6 +1,0 @@
-[submodule "java-rest-binding"]
-	path = java-rest-binding
-	url = https://github.com/neo4j/java-rest-binding.git
-[submodule "bitcoin"]
-	path = bitcoin
-	url = https://github.com/bitcoin/bitcoin.git
