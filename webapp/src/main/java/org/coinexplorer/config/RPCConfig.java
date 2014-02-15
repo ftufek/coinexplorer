@@ -1,10 +1,15 @@
 package org.coinexplorer.config;
 
 public class RPCConfig {
+	private final static int DEFAULT_NUMBER_THREADS = 20;
+	
 	private String user;
 	private String password;
 	private String url;
 	private Type type;
+	
+	private int numberThreads; // used to setup how many parallel threads
+							  //are used to access the RPC
 	
 	public RPCConfig(String user, String password, String url, Type type) {
 		super();
@@ -12,6 +17,7 @@ public class RPCConfig {
 		this.password = password;
 		this.url = url;
 		this.type = type;
+		this.numberThreads = DEFAULT_NUMBER_THREADS;
 	}
 	
 	public String getUser() {
@@ -38,6 +44,14 @@ public class RPCConfig {
 	public void setType(Type type) {
 		this.type = type;
 	}
+	public int getNumberThreads() {
+		return numberThreads;
+	}
+
+	public void setNumberThreads(int numberThreads) {
+		this.numberThreads = numberThreads;
+	}
+
 
 	public enum Type{
 		Bitcoin

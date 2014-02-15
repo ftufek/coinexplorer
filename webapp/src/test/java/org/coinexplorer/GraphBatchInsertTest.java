@@ -6,7 +6,6 @@ import java.util.List;
 import org.coinexplorer.config.CEConfig;
 import org.coinexplorer.graph.GraphBatchInsert;
 import org.coinexplorer.graph.nodes.NAddress;
-import org.coinexplorer.graph.nodes.NBase;
 import org.coinexplorer.rpc.BTCRPC;
 import org.coinexplorer.rpc.Block;
 import org.coinexplorer.rpc.RawTransaction;

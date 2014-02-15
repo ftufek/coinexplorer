@@ -63,6 +63,13 @@ public class BTCRPCTest {
 	}
 	
 	@Test
+	public void getrawtransactions(){
+		List<RawTransaction> txs = rpc.getRawTransactionsForBlocks(200000, 200100);
+		System.out.println(txs);
+		System.out.println(txs.size());
+	}
+	
+	@Test
 	public void getCoinbase() {
 		String coinbaseTx = "408db832204f1b3c0740184c071bfc7b61d772462bea6e11fec478eef38a4ec1";
 		assertTrue(rpc.getrawtransaction(coinbaseTx).isCoinbase());
