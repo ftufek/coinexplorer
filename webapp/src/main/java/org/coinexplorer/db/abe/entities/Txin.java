@@ -95,20 +95,6 @@ public class Txin implements Serializable {
 		this.blockTxins = blockTxins;
 	}
 
-	public BlockTxin addBlockTxin(BlockTxin blockTxin) {
-		getBlockTxins().add(blockTxin);
-		blockTxin.setTxin(this);
-
-		return blockTxin;
-	}
-
-	public BlockTxin removeBlockTxin(BlockTxin blockTxin) {
-		getBlockTxins().remove(blockTxin);
-		blockTxin.setTxin(null);
-
-		return blockTxin;
-	}
-
 	public Tx getTx() {
 		return this.tx;
 	}

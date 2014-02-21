@@ -20,14 +20,14 @@ public class BlockTxin implements Serializable {
 	@EmbeddedId
 	private BlockTxinPK id;
 
-	@MapsId("block_id") @ManyToOne
-	private Block block1;
+	@JoinColumn(name="block_id") @ManyToOne
+	private Block block;
 
 	@ManyToOne
 	@JoinColumn(name="out_block_id")
-	private Block block2;
+	private Block outBlock;
 
-	@MapsId("txin_id") @ManyToOne
+	@JoinColumn(name="txin_id") @ManyToOne
 	private Txin txin;
 
 	public BlockTxin() {
@@ -37,12 +37,12 @@ public class BlockTxin implements Serializable {
 		return this.id;
 	}
 
-	public Block getBlock1() {
-		return this.block1;
+	public Block getBlock() {
+		return this.block;
 	}
 
-	public Block getBlock2() {
-		return this.block2;
+	public Block getOutBlock() {
+		return this.outBlock;
 	}
 
 	public Txin getTxin() {
