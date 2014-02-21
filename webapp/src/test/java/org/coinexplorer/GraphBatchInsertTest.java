@@ -68,7 +68,7 @@ public class GraphBatchInsertTest {
 //		
 //		batchInsert.batchInsert();
 //		
-//		System.out.println(DEBUG_TAG + "Time to push thes nodes to DB: " + toSeconds(System.currentTimeMillis() - time)+ " seconds.");
+//		System.out.println(DEBUG_TAG + "Time to push the nodes to DB: " + toSeconds(System.currentTimeMillis() - time)+ " seconds.");
 //	}
 	
 	@Test
