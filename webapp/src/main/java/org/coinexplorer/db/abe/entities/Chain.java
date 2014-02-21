@@ -4,11 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-
-/**
- * The persistent class for the chain database table.
- * 
- */
 @Entity
 @NamedQuery(name="Chain.findAll", query="SELECT c FROM Chain c")
 public class Chain implements Serializable {
@@ -48,64 +43,31 @@ public class Chain implements Serializable {
 		return this.chainId;
 	}
 
-	public void setChainId(long chainId) {
-		this.chainId = chainId;
-	}
-
 	public String getChainAddressVersion() {
 		return this.chainAddressVersion;
-	}
-
-	public void setChainAddressVersion(String chainAddressVersion) {
-		this.chainAddressVersion = chainAddressVersion;
 	}
 
 	public String getChainCode3() {
 		return this.chainCode3;
 	}
 
-	public void setChainCode3(String chainCode3) {
-		this.chainCode3 = chainCode3;
-	}
-
 	public BigDecimal getChainDecimals() {
 		return this.chainDecimals;
-	}
-
-	public void setChainDecimals(BigDecimal chainDecimals) {
-		this.chainDecimals = chainDecimals;
 	}
 
 	public String getChainMagic() {
 		return this.chainMagic;
 	}
 
-	public void setChainMagic(String chainMagic) {
-		this.chainMagic = chainMagic;
-	}
-
 	public String getChainName() {
 		return this.chainName;
-	}
-
-	public void setChainName(String chainName) {
-		this.chainName = chainName;
 	}
 
 	public String getChainPolicy() {
 		return this.chainPolicy;
 	}
 
-	public void setChainPolicy(String chainPolicy) {
-		this.chainPolicy = chainPolicy;
-	}
-
 	public Block getBlock() {
 		return this.block;
 	}
-
-	public void setBlock(Block block) {
-		this.block = block;
-	}
-
 }

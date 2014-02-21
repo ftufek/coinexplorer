@@ -5,11 +5,6 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
-
-/**
- * The persistent class for the block database table.
- * 
- */
 @Entity
 @NamedQuery(name="Block.findAll", query="SELECT b FROM Block b")
 public class Block implements Serializable {

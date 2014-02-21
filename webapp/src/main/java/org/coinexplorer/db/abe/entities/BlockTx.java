@@ -4,11 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-
-/**
- * The persistent class for the block_tx database table.
- * 
- */
 @Entity
 @Table(name="block_tx")
 @NamedQuery(name="BlockTx.findAll", query="SELECT b FROM BlockTx b")
@@ -21,14 +16,12 @@ public class BlockTx implements Serializable {
 	@Column(name="tx_pos")
 	private BigDecimal txPos;
 
-	//bi-directional many-to-one association to Block
 	@ManyToOne
-	@JoinColumn(name="block_id")
+	@JoinColumn(name="block_id", insertable=false, updatable=false)
 	private Block block;
 
-	//bi-directional many-to-one association to Tx
 	@ManyToOne
-	@JoinColumn(name="tx_id")
+	@JoinColumn(name="tx_id", insertable=false, updatable=false)
 	private Tx tx;
 
 	public BlockTx() {
@@ -38,32 +31,15 @@ public class BlockTx implements Serializable {
 		return this.id;
 	}
 
-	public void setId(BlockTxPK id) {
-		this.id = id;
-	}
-
 	public BigDecimal getTxPos() {
 		return this.txPos;
-	}
-
-	public void setTxPos(BigDecimal txPos) {
-		this.txPos = txPos;
 	}
 
 	public Block getBlock() {
 		return this.block;
 	}
 
-	public void setBlock(Block block) {
-		this.block = block;
-	}
-
 	public Tx getTx() {
 		return this.tx;
 	}
-
-	public void setTx(Tx tx) {
-		this.tx = tx;
-	}
-
 }

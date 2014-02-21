@@ -90,20 +90,6 @@ public class Tx implements Serializable {
 		this.blockTxs = blockTxs;
 	}
 
-	public BlockTx addBlockTx(BlockTx blockTx) {
-		getBlockTxs().add(blockTx);
-		blockTx.setTx(this);
-
-		return blockTx;
-	}
-
-	public BlockTx removeBlockTx(BlockTx blockTx) {
-		getBlockTxs().remove(blockTx);
-		blockTx.setTx(null);
-
-		return blockTx;
-	}
-
 	public List<Txin> getTxins() {
 		return this.txins;
 	}

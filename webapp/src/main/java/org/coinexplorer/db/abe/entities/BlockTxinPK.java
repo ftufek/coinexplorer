@@ -3,13 +3,8 @@ package org.coinexplorer.db.abe.entities;
 import java.io.Serializable;
 import javax.persistence.*;
 
-/**
- * The primary key class for the block_txin database table.
- * 
- */
 @Embeddable
 public class BlockTxinPK implements Serializable {
-	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
 	@Column(name="block_id", insertable=false, updatable=false)
@@ -23,14 +18,9 @@ public class BlockTxinPK implements Serializable {
 	public long getBlockId() {
 		return this.blockId;
 	}
-	public void setBlockId(long blockId) {
-		this.blockId = blockId;
-	}
+	
 	public long getTxinId() {
 		return this.txinId;
-	}
-	public void setTxinId(long txinId) {
-		this.txinId = txinId;
 	}
 
 	public boolean equals(Object other) {

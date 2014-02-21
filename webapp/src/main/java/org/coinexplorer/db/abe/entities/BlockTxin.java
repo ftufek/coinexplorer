@@ -2,15 +2,13 @@ package org.coinexplorer.db.abe.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
-import org.jboss.resteasy.annotations.cache.NoCache;
-
-
-/**
- * The persistent class for the block_txin database table.
- * 
- */
 @Entity
 @Table(name="block_txin")
 @NamedQuery(name="BlockTxin.findAll", query="SELECT b FROM BlockTxin b")
