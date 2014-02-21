@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="coinexplorer">
+	<persistence-unit name="abe">
+		<jta-data-source>java:/datasources/abeDS</jta-data-source>
+		<class>org.coinexplorer.db.abe.entities.Block</class>
+		<class>org.coinexplorer.db.abe.entities.BlockTx</class>
+		<class>org.coinexplorer.db.abe.entities.BlockTxPK</class>
+		<class>org.coinexplorer.db.abe.entities.BlockTxin</class>
+		<class>org.coinexplorer.db.abe.entities.BlockTxinPK</class>
+		<class>org.coinexplorer.db.abe.entities.Chain</class>
+		<class>org.coinexplorer.db.abe.entities.ChainCandidate</class>
+		<class>org.coinexplorer.db.abe.entities.ChainCandidatePK</class>
+		<class>org.coinexplorer.db.abe.entities.ChainSummary</class>
+		<class>org.coinexplorer.db.abe.entities.Configvar</class>
+		<class>org.coinexplorer.db.abe.entities.Datadir</class>
+		<class>org.coinexplorer.db.abe.entities.OrphanBlock</class>
+		<class>org.coinexplorer.db.abe.entities.Pubkey</class>
+		<class>org.coinexplorer.db.abe.entities.Tx</class>
+		<class>org.coinexplorer.db.abe.entities.Txin</class>
+		<class>org.coinexplorer.db.abe.entities.TxinDetail</class>
+		<class>org.coinexplorer.db.abe.entities.Txout</class>
+		<class>org.coinexplorer.db.abe.entities.TxoutApprox</class>
+		<class>org.coinexplorer.db.abe.entities.TxoutDetail</class>
+		<class>org.coinexplorer.db.abe.entities.UnlinkedTxin</class>
+	      <properties>
+	         <!-- Properties for Hibernate -->
+	         <property name="hibernate.hbm2ddl.auto" value="validate" />
+	         <property name="hibernate.show_sql" value="false" />
+	      </properties>
 	</persistence-unit>
 </persistence>
