@@ -13,12 +13,12 @@ public class UnlinkedTxin implements Serializable {
 
 	@Id
 	@Column(name="txin_id")
-	private long txinId;
+	private BigDecimal txinId;
 
 	@Column(name="txout_pos")
 	private BigDecimal txoutPos;
 
-	@Column(name="txout_tx_hash")
+	@Column(name="txout_tx_hash", columnDefinition="bpchar(64)")
 	private String txoutTxHash;
 
 	@OneToOne
@@ -28,7 +28,7 @@ public class UnlinkedTxin implements Serializable {
 	public UnlinkedTxin() {
 	}
 
-	public long getTxinId() {
+	public BigDecimal getTxinId() {
 		return this.txinId;
 	}
 

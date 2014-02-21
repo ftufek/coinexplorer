@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 public class TxoutDetail implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="block_hash")
+	@Column(name="block_hash", columnDefinition="bpchar(64)")
 	private String blockHash;
 
 	@Column(name="block_height")
@@ -26,15 +26,16 @@ public class TxoutDetail implements Serializable {
 	@Column(name="in_longest")
 	private BigDecimal inLongest;
 
+	@Column(name="pubkey", columnDefinition="bpchar(130)")
 	private String pubkey;
 
-	@Column(name="pubkey_hash")
+	@Column(name="pubkey_hash", columnDefinition="bpchar(40)")
 	private String pubkeyHash;
 
 	@Column(name="pubkey_id")
 	private BigDecimal pubkeyId;
 
-	@Column(name="tx_hash")
+	@Column(name="tx_hash", columnDefinition="bpchar(64)")
 	private String txHash;
 
 	@Id
