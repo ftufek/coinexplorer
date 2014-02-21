@@ -3,11 +3,6 @@ package org.coinexplorer.db.abe.entities;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
-/**
- * The persistent class for the configvar database table.
- * 
- */
 @Entity
 @NamedQuery(name="Configvar.findAll", query="SELECT c FROM Configvar c")
 public class Configvar implements Serializable {
@@ -27,16 +22,7 @@ public class Configvar implements Serializable {
 		return this.configvarName;
 	}
 
-	public void setConfigvarName(String configvarName) {
-		this.configvarName = configvarName;
-	}
-
 	public String getConfigvarValue() {
 		return this.configvarValue;
 	}
-
-	public void setConfigvarValue(String configvarValue) {
-		this.configvarValue = configvarValue;
-	}
-
 }

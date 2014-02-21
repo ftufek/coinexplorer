@@ -3,13 +3,8 @@ package org.coinexplorer.db.abe.entities;
 import java.io.Serializable;
 import javax.persistence.*;
 
-/**
- * The primary key class for the chain_candidate database table.
- * 
- */
 @Embeddable
 public class ChainCandidatePK implements Serializable {
-	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
 	@Column(name="chain_id")
@@ -23,14 +18,9 @@ public class ChainCandidatePK implements Serializable {
 	public long getChainId() {
 		return this.chainId;
 	}
-	public void setChainId(long chainId) {
-		this.chainId = chainId;
-	}
+	
 	public long getBlockId() {
 		return this.blockId;
-	}
-	public void setBlockId(long blockId) {
-		this.blockId = blockId;
 	}
 
 	public boolean equals(Object other) {

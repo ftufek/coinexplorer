@@ -5,10 +5,6 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 
-/**
- * The persistent class for the txout_approx database table.
- * 
- */
 @Entity
 @Table(name="txout_approx")
 @NamedQuery(name="TxoutApprox.findAll", query="SELECT t FROM TxoutApprox t")
@@ -32,24 +28,11 @@ public class TxoutApprox implements Serializable {
 		return this.txId;
 	}
 
-	public void setTxId(BigDecimal txId) {
-		this.txId = txId;
-	}
-
 	public BigDecimal getTxoutApproxValue() {
 		return this.txoutApproxValue;
-	}
-
-	public void setTxoutApproxValue(BigDecimal txoutApproxValue) {
-		this.txoutApproxValue = txoutApproxValue;
 	}
 
 	public BigDecimal getTxoutId() {
 		return this.txoutId;
 	}
-
-	public void setTxoutId(BigDecimal txoutId) {
-		this.txoutId = txoutId;
-	}
-
 }

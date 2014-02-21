@@ -4,11 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-
-/**
- * The persistent class for the chain_candidate database table.
- * 
- */
 @Entity
 @Table(name="chain_candidate")
 @NamedQuery(name="ChainCandidate.findAll", query="SELECT c FROM ChainCandidate c")
@@ -24,9 +19,8 @@ public class ChainCandidate implements Serializable {
 	@Column(name="in_longest")
 	private BigDecimal inLongest;
 
-	//bi-directional many-to-one association to Block
 	@ManyToOne
-	@JoinColumn(name="block_id")
+	@JoinColumn(name="block_id", insertable=false, updatable=false)
 	private Block block;
 
 	public ChainCandidate() {
@@ -36,32 +30,15 @@ public class ChainCandidate implements Serializable {
 		return this.id;
 	}
 
-	public void setId(ChainCandidatePK id) {
-		this.id = id;
-	}
-
 	public BigDecimal getBlockHeight() {
 		return this.blockHeight;
-	}
-
-	public void setBlockHeight(BigDecimal blockHeight) {
-		this.blockHeight = blockHeight;
 	}
 
 	public BigDecimal getInLongest() {
 		return this.inLongest;
 	}
 
-	public void setInLongest(BigDecimal inLongest) {
-		this.inLongest = inLongest;
-	}
-
 	public Block getBlock() {
 		return this.block;
 	}
-
-	public void setBlock(Block block) {
-		this.block = block;
-	}
-
 }
