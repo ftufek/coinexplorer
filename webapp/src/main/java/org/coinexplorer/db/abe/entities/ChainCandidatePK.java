@@ -1,25 +1,28 @@
 package org.coinexplorer.db.abe.entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
 @Embeddable
 public class ChainCandidatePK implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name="chain_id")
-	private long chainId;
+	private BigDecimal chainId;
 
 	@Column(name="block_id", insertable=false, updatable=false)
-	private long blockId;
+	private BigDecimal blockId;
 
 	public ChainCandidatePK() {
 	}
-	public long getChainId() {
+	public BigDecimal getChainId() {
 		return this.chainId;
 	}
 	
-	public long getBlockId() {
+	public BigDecimal getBlockId() {
 		return this.blockId;
 	}
 
@@ -39,8 +42,8 @@ public class ChainCandidatePK implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int hash = 17;
-		hash = hash * prime + ((int) (this.chainId ^ (this.chainId >>> 32)));
-		hash = hash * prime + ((int) (this.blockId ^ (this.blockId >>> 32)));
+		hash = hash * prime + this.chainId.hashCode();
+		hash = hash * prime + this.blockId.hashCode();
 		
 		return hash;
 	}

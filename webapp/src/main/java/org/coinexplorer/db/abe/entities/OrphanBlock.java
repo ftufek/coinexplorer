@@ -1,6 +1,8 @@
 package org.coinexplorer.db.abe.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,9 +13,9 @@ public class OrphanBlock implements Serializable {
 
 	@Id
 	@Column(name="block_id")
-	private long blockId;
+	private BigDecimal blockId;
 
-	@Column(name="block_hashprev")
+	@Column(name="block_hashprev", columnDefinition="bpchar(64)")
 	private String blockHashprev;
 
 	@OneToOne
@@ -23,7 +25,7 @@ public class OrphanBlock implements Serializable {
 	public OrphanBlock() {
 	}
 
-	public long getBlockId() {
+	public BigDecimal getBlockId() {
 		return this.blockId;
 	}
 

@@ -18,14 +18,16 @@ public class BlockTxin implements Serializable {
 	@EmbeddedId
 	private BlockTxinPK id;
 
-	@JoinColumn(name="block_id") @ManyToOne
+	@JoinColumn(name="block_id", insertable=false, updatable=false)
+	@ManyToOne
 	private Block block;
 
 	@ManyToOne
 	@JoinColumn(name="out_block_id")
 	private Block outBlock;
 
-	@JoinColumn(name="txin_id") @ManyToOne
+	@JoinColumn(name="txin_id", insertable=false, updatable=false)
+	@ManyToOne
 	private Txin txin;
 
 	public BlockTxin() {

@@ -13,7 +13,7 @@ public class Txin implements Serializable {
 
 	@Id
 	@Column(name="txin_id")
-	private long txinId;
+	private BigDecimal txinId;
 
 	@Column(name="txin_pos")
 	private BigDecimal txinPos;
@@ -40,7 +40,7 @@ public class Txin implements Serializable {
 	public Txin() {
 	}
 
-	public long getTxinId() {
+	public BigDecimal getTxinId() {
 		return this.txinId;
 	}
 

@@ -12,9 +12,9 @@ public class Tx implements Serializable {
 
 	@Id
 	@Column(name="tx_id")
-	private long txId;
+	private BigDecimal txId;
 
-	@Column(name="tx_hash")
+	@Column(name="tx_hash", columnDefinition="bpchar(64)")
 	private String txHash;
 
 	@Column(name="tx_locktime")
@@ -35,7 +35,7 @@ public class Tx implements Serializable {
 	public Tx() {
 	}
 
-	public long getTxId() {
+	public BigDecimal getTxId() {
 		return this.txId;
 	}
 

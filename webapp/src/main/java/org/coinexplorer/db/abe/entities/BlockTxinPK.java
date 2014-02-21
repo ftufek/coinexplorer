@@ -1,25 +1,28 @@
 package org.coinexplorer.db.abe.entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
 @Embeddable
 public class BlockTxinPK implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name="block_id", insertable=false, updatable=false)
-	private long blockId;
+	private BigDecimal blockId;
 
 	@Column(name="txin_id", insertable=false, updatable=false)
-	private long txinId;
+	private BigDecimal txinId;
 
 	public BlockTxinPK() {
 	}
-	public long getBlockId() {
+	public BigDecimal getBlockId() {
 		return this.blockId;
 	}
 	
-	public long getTxinId() {
+	public BigDecimal getTxinId() {
 		return this.txinId;
 	}
 
@@ -39,8 +42,8 @@ public class BlockTxinPK implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int hash = 17;
-		hash = hash * prime + ((int) (this.blockId ^ (this.blockId >>> 32)));
-		hash = hash * prime + ((int) (this.txinId ^ (this.txinId >>> 32)));
+		hash = hash * prime + this.blockId.hashCode();
+		hash = hash * prime + this.txinId.hashCode();
 		
 		return hash;
 	}

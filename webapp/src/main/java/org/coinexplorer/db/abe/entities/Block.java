@@ -12,15 +12,15 @@ public class Block implements Serializable {
 
 	@Id
 	@Column(name="block_id")
-	private long blockId;
+	private BigDecimal blockId;
 
-	@Column(name="block_chain_work")
+	@Column(name="block_chain_work", columnDefinition="bpchar(76)")
 	private String blockChainWork;
 
-	@Column(name="block_hash")
+	@Column(name="block_hash", columnDefinition="bpchar(64)")
 	private String blockHash;
 
-	@Column(name="block_hashmerkleroot")
+	@Column(name="block_hashmerkleroot", columnDefinition="bpchar(64)")
 	private String blockHashmerkleroot;
 
 	@Column(name="block_height")
@@ -87,7 +87,7 @@ public class Block implements Serializable {
 	public Block() {
 	}
 
-	public long getBlockId() {
+	public BigDecimal getBlockId() {
 		return this.blockId;
 	}
 

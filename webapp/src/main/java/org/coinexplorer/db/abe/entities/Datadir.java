@@ -11,7 +11,7 @@ public class Datadir implements Serializable {
 
 	@Id
 	@Column(name="datadir_id")
-	private long datadirId;
+	private BigDecimal datadirId;
 
 	@Column(name="blkfile_number")
 	private BigDecimal blkfileNumber;
@@ -27,7 +27,7 @@ public class Datadir implements Serializable {
 	public Datadir() {
 	}
 
-	public long getDatadirId() {
+	public BigDecimal getDatadirId() {
 		return this.datadirId;
 	}
 

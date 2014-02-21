@@ -10,13 +10,13 @@ import java.math.BigDecimal;
 public class ChainSummary implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="block_chain_work")
+	@Column(name="block_chain_work", columnDefinition="bpchar(76)")
 	private String blockChainWork;
 
-	@Column(name="block_hash")
+	@Column(name="block_hash", columnDefinition="bpchar(64)")
 	private String blockHash;
 
-	@Column(name="block_hashmerkleroot")
+	@Column(name="block_hashmerkleroot", columnDefinition="bpchar(64)")
 	private String blockHashmerkleroot;
 
 	@Column(name="block_height")
@@ -68,7 +68,7 @@ public class ChainSummary implements Serializable {
 	@Column(name="in_longest")
 	private BigDecimal inLongest;
 
-	@Column(name="prev_block_hash")
+	@Column(name="prev_block_hash", columnDefinition="bpchar(64)")
 	private String prevBlockHash;
 
 	@Column(name="prev_block_id")

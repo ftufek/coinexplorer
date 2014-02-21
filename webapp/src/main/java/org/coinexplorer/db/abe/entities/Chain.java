@@ -11,18 +11,18 @@ public class Chain implements Serializable {
 
 	@Id
 	@Column(name="chain_id")
-	private long chainId;
+	private BigDecimal chainId;
 
 	@Column(name="chain_address_version")
 	private String chainAddressVersion;
 
-	@Column(name="chain_code3")
+	@Column(name="chain_code3", columnDefinition="bpchar(3)")
 	private String chainCode3;
 
 	@Column(name="chain_decimals")
 	private BigDecimal chainDecimals;
 
-	@Column(name="chain_magic")
+	@Column(name="chain_magic", columnDefinition="bpchar(8)")
 	private String chainMagic;
 
 	@Column(name="chain_name")
@@ -39,7 +39,7 @@ public class Chain implements Serializable {
 	public Chain() {
 	}
 
-	public long getChainId() {
+	public BigDecimal getChainId() {
 		return this.chainId;
 	}
 

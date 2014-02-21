@@ -11,7 +11,7 @@ public class Txout implements Serializable {
 
 	@Id
 	@Column(name="txout_id")
-	private long txoutId;
+	private BigDecimal txoutId;
 
 	@Column(name="tx_id")
 	private BigDecimal txId;
@@ -32,7 +32,7 @@ public class Txout implements Serializable {
 	public Txout() {
 	}
 
-	public long getTxoutId() {
+	public BigDecimal getTxoutId() {
 		return this.txoutId;
 	}
 
