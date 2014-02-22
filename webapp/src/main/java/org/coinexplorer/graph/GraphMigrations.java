@@ -5,14 +5,6 @@ import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Transaction;
 import org.neo4j.kernel.impl.util.StringLogger;
 
-/**
- * The migrations work by keeping track of the DB version.
- * The graph includes a node called Config which has the
- * version property.
- * 
- * @author FT
- *
- */
 public class GraphMigrations {
 	private GraphDatabaseService graphDb;
 	

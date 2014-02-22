@@ -1,26 +1,19 @@
 package org.coinexplorer;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.coinexplorer.config.CEConfig;
 import org.coinexplorer.graph.GraphBatchInsert;
 import org.coinexplorer.graph.SQLConnection;
 import org.coinexplorer.graph.nodes.NAddress;
-import org.coinexplorer.rpc.BTCRPC;
-import org.coinexplorer.rpc.Block;
-import org.coinexplorer.rpc.RawTransaction;
 import org.junit.Before;
 import org.junit.Test;
 
 public class GraphBatchInsertTest {
 	private final String DEBUG_TAG = "[GraphBatchInsertTest]: ";
-	private BTCRPC rpc;
 	
 	@Before
 	public void setUp(){
-//		batchInsert = new GraphBatchInsert<NAddress>(new CEConfig(CEConfig.Type.TEST).getGraphConfig());
-		rpc = new BTCRPC(new CEConfig(CEConfig.Type.TEST).getBtcRpcConfig());
 	}
 	
 	
