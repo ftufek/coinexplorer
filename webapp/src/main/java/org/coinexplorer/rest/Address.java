@@ -12,12 +12,18 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.google.common.collect.ImmutableMap;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
 
 @Path("/address")
+@Api(value="/address", description="a")
 public class Address {
-	@GET @Produces(MediaType.APPLICATION_JSON)
-	@Path("/{address}")
-	public Map<String, Object> index(@PathParam("address") String address){
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/{address}/{ddd}")
+	@ApiOperation(value="dd")
+	public Map<String, Object> index(@ApiParam(value="a") @PathParam("address") String address){
 		Map<String, Object> m = new HashMap<>();
 		
 		List<Map<String, String>> inputs = new ArrayList<>();
