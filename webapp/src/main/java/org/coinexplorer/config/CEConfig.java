@@ -3,23 +3,21 @@ package org.coinexplorer.config;
 import java.io.File;
 import java.io.IOException;
 
+import javax.annotation.PostConstruct;
+import javax.ejb.Startup;
+import javax.enterprise.context.ApplicationScoped;
+
+@ApplicationScoped
 public class CEConfig {
 	private static final String CONFIG_FOLDER = System.getProperty("user.home")+"/.coinexplorer/";
 	
-	/**
-	 * As of now, the configType doesn't affect the behavior
-	 * of the class. But in the future, the functions are
-	 * supposed to return different kinds of information depending
-	 * on the configType.
-	 * 
-	 * @param configType
-	 */
-	public CEConfig(Type configType){
+	@PostConstruct
+	public void init(){
 		initConfigFolder();
 	}
 	
-	public GraphConfig getGraphConfig(){
-		return new GraphConfig(CONFIG_FOLDER+"/neo4j.db");
+	public String getGraphDbPath(){
+		return CONFIG_FOLDER+"/neo4j.db";
 	}
 	
 	/**

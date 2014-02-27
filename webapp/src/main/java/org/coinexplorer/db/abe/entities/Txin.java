@@ -34,9 +34,6 @@ public class Txin implements Serializable {
 	@JoinColumn(name="tx_id")
 	private Tx tx;
 
-	@OneToOne(mappedBy="txin")
-	private UnlinkedTxin unlinkedTxin;
-
 	public Txin() {
 	}
 
@@ -66,9 +63,5 @@ public class Txin implements Serializable {
 
 	public Tx getTx() {
 		return this.tx;
-	}
-
-	public UnlinkedTxin getUnlinkedTxin() {
-		return this.unlinkedTxin;
 	}
 }

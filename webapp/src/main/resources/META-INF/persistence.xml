@@ -17,11 +17,7 @@
 		<class>org.coinexplorer.db.abe.entities.Pubkey</class>
 		<class>org.coinexplorer.db.abe.entities.Tx</class>
 		<class>org.coinexplorer.db.abe.entities.Txin</class>
-		<class>org.coinexplorer.db.abe.entities.TxinDetail</class>
 		<class>org.coinexplorer.db.abe.entities.Txout</class>
-		<class>org.coinexplorer.db.abe.entities.TxoutApprox</class>
-		<class>org.coinexplorer.db.abe.entities.TxoutDetail</class>
-		<class>org.coinexplorer.db.abe.entities.UnlinkedTxin</class>
 	      <properties>
 	         <!-- Properties for Hibernate -->
 	         <property name="hibernate.hbm2ddl.auto" value="validate" />

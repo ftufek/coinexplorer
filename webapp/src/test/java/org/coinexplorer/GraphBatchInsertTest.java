@@ -1,13 +1,6 @@
 package org.coinexplorer;
 
-import java.util.ArrayList;
-
-import org.coinexplorer.config.CEConfig;
-import org.coinexplorer.graph.GraphBatchInsert;
-import org.coinexplorer.graph.SQLConnection;
-import org.coinexplorer.graph.nodes.NAddress;
 import org.junit.Before;
-import org.junit.Test;
 
 public class GraphBatchInsertTest {
 	private final String DEBUG_TAG = "[GraphBatchInsertTest]: ";
@@ -63,36 +56,36 @@ public class GraphBatchInsertTest {
 //		
 //		System.out.println(DEBUG_TAG + "Time to push the nodes to DB: " + toSeconds(System.currentTimeMillis() - time)+ " seconds.");
 //	}
-	
-	@Test
-	public void populateDB(){
-		SQLConnection sql = new SQLConnection();
-		
-		GraphBatchInsert<NAddress> batchInsert;
-		
-		for(int i = 1; i < 4700000; i+= 100000) {
-			
-			
-			ArrayList<String> outAddresses = sql.GetAddressesFrom(i, i + 100000);
-			
-			System.out.println(DEBUG_TAG + "Fetched SQL addresses from " + i +" to " + (i + 100000) +" .");
-			
-			batchInsert = new GraphBatchInsert<NAddress>(new CEConfig(CEConfig.Type.TEST).getGraphConfig());
-			
-			for(String out : outAddresses){
-				batchInsert.addToBatchList(new NAddress(out));
-			}
-			
-			long time = System.currentTimeMillis();
-			
-			batchInsert.batchInsert();
-			
-			System.out.println(DEBUG_TAG + "Time to push the nodes to DB: " + toSeconds(System.currentTimeMillis() - time) + " seconds.");
-			System.out.println();
-		}
-	}	
-	static float toSeconds(long time)
-	{
-		return (float) ( (double) time / (double) 1000);
-	}
+//	
+//	@Test
+//	public void populateDB(){
+//		SQLConnection sql = new SQLConnection();
+//		
+//		GraphBatchInsert<NAddress> batchInsert;
+//		
+//		for(int i = 1; i < 4700000; i+= 100000) {
+//			
+//			
+//			ArrayList<String> outAddresses = sql.GetAddressesFrom(i, i + 100000);
+//			
+//			System.out.println(DEBUG_TAG + "Fetched SQL addresses from " + i +" to " + (i + 100000) +" .");
+//			
+//			batchInsert = new GraphBatchInsert<NAddress>(new CEConfig(CEConfig.Type.TEST).getGraphConfig());
+//			
+//			for(String out : outAddresses){
+//				batchInsert.addToBatchList(new NAddress(out));
+//			}
+//			
+//			long time = System.currentTimeMillis();
+//			
+//			batchInsert.batchInsert();
+//			
+//			System.out.println(DEBUG_TAG + "Time to push the nodes to DB: " + toSeconds(System.currentTimeMillis() - time) + " seconds.");
+//			System.out.println();
+//		}
+//	}	
+//	static float toSeconds(long time)
+//	{
+//		return (float) ( (double) time / (double) 1000);
+//	}
 }
