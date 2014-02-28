@@ -1,6 +1,6 @@
 package org.coinexplorer.coingraph.impl;
 
-import org.coinexplorer.graph.nodes.NLabel;
+import org.coinexplorer.coingraph.nodes.NLabel;
 import org.neo4j.cypher.ExecutionEngine;
 import org.neo4j.cypher.ExecutionResult;
 import org.neo4j.graphdb.GraphDatabaseService;

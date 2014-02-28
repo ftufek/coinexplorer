@@ -1,8 +1,6 @@
 package org.coinexplorer.rest;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -14,7 +12,6 @@ import javax.ws.rs.core.MediaType;
 
 import org.coinexplorer.coingraph.impl.CoinGraph;
 
-import com.google.common.collect.ImmutableMap;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;

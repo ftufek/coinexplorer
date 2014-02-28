@@ -1,4 +1,4 @@
-package org.coinexplorer.graph.nodes;
+package org.coinexplorer.coingraph.nodes;
 
 import org.neo4j.graphdb.Label;
 

@@ -1,4 +1,4 @@
-package org.coinexplorer.graph.nodes;
+package org.coinexplorer.coingraph.nodes;
 
 import java.util.List;
 

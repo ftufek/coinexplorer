@@ -9,9 +9,9 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import org.coinexplorer.coingraph.ICoinGraph;
+import org.coinexplorer.coingraph.nodes.NLabel;
+import org.coinexplorer.coingraph.nodes.NTransaction;
 import org.coinexplorer.config.CEConfig;
-import org.coinexplorer.graph.nodes.NLabel;
-import org.coinexplorer.graph.nodes.NTransaction;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Transaction;
