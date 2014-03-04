@@ -6,6 +6,8 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
+import org.coinexplorer.rest.impl.AddressImpl;
+
 @ApplicationPath("/rest")
 public class JaxRsActivator extends Application{
 
@@ -13,7 +15,7 @@ public class JaxRsActivator extends Application{
 	public Set<Class<?>> getClasses() {
 		Set<Class<?>> resources = new HashSet<>();
 		//Add REST classes
-		resources.add(Address.class);
+		resources.add(AddressImpl.class);
 		
         resources.add(com.wordnik.swagger.jaxrs.JaxrsApiReader.class);
         resources.add(com.wordnik.swagger.jaxrs.listing.ApiListingResource.class);        
