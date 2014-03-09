@@ -2,19 +2,23 @@ package org.coinexplorer.coingraph.nodes;
 
 import java.util.List;
 
+import org.coinexplorer.coingraph.relations.RInputTransaction;
+
+
 public class NTransaction {
-	private List<String> outAddresses;
+	private String txHash;
+	private List<RInputTransaction> inputTxs;
 	
-	public NTransaction(List<String> outAddresses) {
-		super();
-		this.outAddresses = outAddresses;
+	public NTransaction(String txHash, List<RInputTransaction> inputTxs) {
+		this.txHash = txHash;
+		this.inputTxs = inputTxs;
 	}
 
-	public List<String> getOutAddresses() {
-		return outAddresses;
+	public String getTxHash() {
+		return txHash;
 	}
-
-	public void setOutAddresses(List<String> outAddresses) {
-		this.outAddresses = outAddresses;
-	}	
+	
+	public List<RInputTransaction> getInputTxs(){
+		return inputTxs;
+	}
 }

@@ -4,12 +4,15 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.Startup;
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class CEConfig {
 	private static final String CONFIG_FOLDER = System.getProperty("user.home")+"/.coinexplorer/";
+	
+	public CEConfig() {
+		init();
+	}
 	
 	@PostConstruct
 	public void init(){
